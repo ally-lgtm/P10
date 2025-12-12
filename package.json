@@ -1,0 +1,23 @@
+{
+  "name": "windsurf-project-2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ally-lgtm/P10App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ally-lgtm/P10App/issues"
+  },
+  "homepage": "https://github.com/ally-lgtm/P10App#readme",
+  "description": "",
+  "dependencies": {
+    "winston-daily-rotate-file": "^5.0.0"
+  }
+}
