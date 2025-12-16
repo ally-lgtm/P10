@@ -1,0 +1,25 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - cd P10App/client
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: P10App/client/dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - P10App/client/node_modules/**/*
+      - P10App/client/.cache/**/*
+      - P10App/client/.vite/**/*
+
+# Environment variables
+# Make sure to set these in the Amplify Console
+# - VITE_SUPABASE_URL
+# - VITE_SUPABASE_ANON_KEY
+# - VITE_API_BASE
