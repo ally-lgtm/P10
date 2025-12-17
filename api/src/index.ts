@@ -9,8 +9,9 @@ import { errorHandler } from './middleware/errorHandler';
 import { notFoundHandler } from './middleware/notFoundHandler';
 import picksRouter from './routes/picks.routes';
 
-// Load environment variables
-config();
+if (require.main === module) {
+  config();
+}
 
 class App {
   public app: Application;
@@ -77,9 +78,12 @@ class App {
   }
 }
 
-// Start the server
 const PORT = parseInt(process.env.PORT || '5000', 10);
 const app = new App(PORT);
-app.listen();
 
+export const expressApp: Application = app.app;
 export default app;
+
+if (require.main === module) {
+  app.listen();
+}
