@@ -44,3 +44,6 @@ api/logs/
 
 # Supabase
 .supabase/
+
+# Serverless
+.serverless/
