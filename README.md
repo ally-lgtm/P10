@@ -16,15 +16,22 @@ A mobile-first web application for Formula 1 fans to make strategic race predict
 - **Backend**: Node.js with Express
 - **Database**: Supabase (PostgreSQL)
 - **Authentication**: Supabase Auth
-- **Hosting**: TBD
+- **Hosting**: AWS Amplify (frontend) + AWS API Gateway/Lambda (API)
+
+## Deployed Application
+
+- **Live site (Amplify)**: [https://main.d1lzr92s882bej.amplifyapp.com](https://main.d1lzr92s882bej.amplifyapp.com)
+- **API base URL (API Gateway)**: [https://c8dtsdalqd.execute-api.us-east-1.amazonaws.com](https://c8dtsdalqd.execute-api.us-east-1.amazonaws.com)
+
+For a full list of live URLs and AWS resource IDs, see `docs/deployment.md`.
 
 ## Project Structure
 
 ```
-P10App/
+P10/
 ├── client/          # React PWA (Vite)
-├── api/             # Express API
-├── supabase/        # SQL migrations + seeds
+├── api/             # Express API (Lambda wrapper + Serverless deploy)
+├── supabase/        # Supabase resources
 ├── docs/            # Documentation
 └── README.md
 ```
@@ -41,6 +48,7 @@ P10App/
 
 1. Clone the repository
 2. Set up environment variables (see `.env.example` files in each directory)
+   - For the client, ensure `VITE_API_BASE` points to your API (local or deployed).
 3. Install dependencies:
    ```bash
    # Install API dependencies
@@ -62,9 +70,36 @@ P10App/
    npm run dev
    ```
 
+### Troubleshooting
+
+- **CORS errors in browser**
+  - Ensure the API CORS origin matches exactly (no extra trailing slash).
+  - Confirm `AMPLIFY_APP_ORIGIN` is set to the Amplify URL when deploying the API.
+
+- **`npm run deploy` says “Missing script: deploy”**
+  - The deploy script is under `api/`, run:
+    - `npm run deploy --prefix api`
+    - or `cd api && npm run deploy`
+
+- **Serverless deploy fails because `SECRETS_ID` is missing**
+  - You must set `SECRETS_ID` in your terminal when running deploy (example: `P10/api/prod`).
+
+- **AWS CLI/credentials issues**
+  - Validate credentials with: `aws sts get-caller-identity`
+
+## Known Issues / Incomplete Features
+
+- **Secrets exposure**: never commit or paste secret keys; rotate any keys that were exposed and update AWS Secrets Manager accordingly.
+- **API timeout**: the API Lambda timeout is set to 30 seconds; long-running requests may time out.
+- **Deployment automation**: API deploy is currently manual via Serverless CLI.
+
+## Support
+
+For support, contact: [ally@csuchico.edu](mailto:ally@csuchico.edu)
+
 ## Deployment
 
-Deployment instructions will be added soon.
+See `docs/deployment.md`.
 
 ## Contributing
 
