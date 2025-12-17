@@ -1,35 +1,37 @@
 version: 1
-frontend:
-  phases:
-    preBuild:
-      commands:
-        - echo "Installing client dependencies..."
-        - npm ci
-    build:
-      commands:
-        - echo "Building client..."
-        - npm run build
-  artifacts:
-    baseDirectory: dist
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - node_modules/**/*
-      - .cache/**/*
-      - .vite/**/*
-  customHeaders:
-    - pattern: '**/*'
-      headers:
-        - key: 'Cache-Control'
-          value: 'public, max-age=0, must-revalidate'
-        - key: 'Strict-Transport-Security'
-          value: 'max-age=31536000; includeSubDomains'
-        - key: 'X-Frame-Options'
-          value: 'SAMEORIGIN'
-        - key: 'X-Content-Type-Options'
-          value: 'nosniff'
-        - key: 'X-XSS-Protection'
-          value: '1; mode=block'
-        - key: 'Referrer-Policy'
-          value: 'same-origin'
+applications:
+  - appRoot: client
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - echo "Installing client dependencies..."
+            - npm ci
+        build:
+          commands:
+            - echo "Building client..."
+            - npm run build
+      artifacts:
+        baseDirectory: dist
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+          - .cache/**/*
+          - .vite/**/*
+      customHeaders:
+        - pattern: '**/*'
+          headers:
+            - key: 'Cache-Control'
+              value: 'public, max-age=0, must-revalidate'
+            - key: 'Strict-Transport-Security'
+              value: 'max-age=31536000; includeSubDomains'
+            - key: 'X-Frame-Options'
+              value: 'SAMEORIGIN'
+            - key: 'X-Content-Type-Options'
+              value: 'nosniff'
+            - key: 'X-XSS-Protection'
+              value: '1; mode=block'
+            - key: 'Referrer-Policy'
+              value: 'same-origin'
