@@ -1,13 +1,14 @@
 # Dependencies
 node_modules/
-P10App/client/node_modules
-P10App/api/node_modules
+client/node_modules/
+api/node_modules/
 
 # Build outputs
-P10App/client/dist
-P10App/client/.vite
-P10App/client/.eslintcache
-P10App/client/*.tsbuildinfo
+client/dist/
+client/.vite/
+client/.eslintcache
+client/*.tsbuildinfo
+api/dist/
 
 # Environment variables
 .env
@@ -36,3 +37,10 @@ yarn-error.log*
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Logs
+api/logs/
+*.log
+
+# Supabase
+.supabase/

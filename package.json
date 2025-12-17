@@ -4,24 +4,24 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install:client": "cd P10App/client && npm ci",
-    "build:client": "cd P10App/client && npm run build",
-    "dev:client": "cd P10App/client && npm run dev",
-    "install:api": "cd P10App/api && npm ci",
-    "build:api": "cd P10App/api && npm run build",
-    "dev:api": "cd P10App/api && npm run dev"
+    "install:client": "cd client && npm ci",
+    "build:client": "cd client && npm run build",
+    "dev:client": "cd client && npm run dev",
+    "install:api": "cd api && npm ci",
+    "build:api": "cd api && npm run build",
+    "dev:api": "cd api && npm run dev"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ally-lgtm/P10App.git"
+    "url": "git+https://github.com/ally-lgtm/P10.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ally-lgtm/P10App/issues"
+    "url": "https://github.com/ally-lgtm/P10/issues"
   },
-  "homepage": "https://github.com/ally-lgtm/P10App#readme",
+  "homepage": "https://github.com/ally-lgtm/P10#readme",
   "description": "",
   "dependencies": {
     "winston-daily-rotate-file": "^5.0.0"
