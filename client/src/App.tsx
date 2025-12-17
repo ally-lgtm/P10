@@ -45,7 +45,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="app-shell">
       <header>
         <h1>P10 Pick</h1>
         <nav>
