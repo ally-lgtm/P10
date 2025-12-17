@@ -57,7 +57,7 @@ async function loadSecretsOnce() {
 }
 
 function getExpressApp() {
-  const mod = require('./index');
+  const mod = require('../dist/index');
   return mod.expressApp || (mod.default && mod.default.app) || mod;
 }
 
