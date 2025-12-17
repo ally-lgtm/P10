@@ -33,9 +33,3 @@ frontend:
           value: '1; mode=block'
         - key: 'Referrer-Policy'
           value: 'same-origin'
-
-# Environment variables
-# Add these in the AWS Amplify Console
-# - VITE_SUPABASE_URL
-# - VITE_SUPABASE_ANON_KEY
-# - VITE_API_BASE
